@@ -3,10 +3,13 @@ steps:
   args: ["build", "-f", "Dockerfile.go", "-t", "gcr.io/private-233816/otemachigo/go:golang-1.12", "."]
 - name: gcr.io/cloud-builders/docker
   args: ["build", "-f", "Dockerfile.ubuntu-multi", "-t", "gcr.io/private-233816/otemachigo/go:ubuntu-multi", "."]
+  waitFor: ['-']
 - name: gcr.io/cloud-builders/docker
   args: ["build", "-f", "Dockerfile.scratch", "-t", "gcr.io/private-233816/otemachigo/go:scratch", "."]
+  waitFor: ['-']
 - name: gcr.io/cloud-builders/docker
   args: ["build", "-f", "Dockerfile.alpine", "-t", "gcr.io/private-233816/otemachigo/go:alpine", "."]
+  waitFor: ['-']
 
 images:
 - 'gcr.io/private-233816/otemachigo/go'
