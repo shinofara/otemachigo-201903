@@ -5,6 +5,8 @@ steps:
   args: ["build", "-f", "Dockerfile.ubuntu-multi", "-t", "gcr.io/private-233816/otemachigo/go:ubuntu-multi", "."]
 - name: gcr.io/cloud-builders/docker
   args: ["build", "-f", "Dockerfile.scratch", "-t", "gcr.io/private-233816/otemachigo/go:scratch", "."]
+- name: gcr.io/cloud-builders/docker
+  args: ["build", "-f", "Dockerfile.alpine", "-t", "gcr.io/private-233816/otemachigo/go:alpine", "."]
 
 images:
 - 'gcr.io/private-233816/otemachigo/go'

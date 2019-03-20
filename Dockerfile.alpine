@@ -1,0 +1,10 @@
+FROM golang:1.12-alpine AS build-image
+
+WORKDIR /work
+ADD main.go main.go
+RUN go build -ldflags '-s -w' -o /bin/hello
+
+FROM alpine:3.9
+COPY --from=build-image /bin/hello /bin/hello
+
+ENTRYPOINT ["/bin/hello"]
