@@ -1,6 +1,6 @@
 steps:
 - name: gcr.io/cloud-builders/docker
-  args: ["docker", "build", "-f", "Dockerfile.go", "-t", "gcr.io/private-233816/otemachigo/go:golang-1.12", "."]
+  args: ["build", "-f", "Dockerfile.go", "-t", "gcr.io/private-233816/otemachigo/go:golang-1.12", "."]
 
 images:
 - 'gcr.io/private-233816/otemachigo/go'
