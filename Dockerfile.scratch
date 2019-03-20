@@ -1,0 +1,10 @@
+FROM golang:1.12 AS build-image
+
+WORKDIR /work
+ADD main.go main.go
+RUN GOOS=linux CGO_ENABLED=0 go build -ldflags '-s -w' -o /bin/hello
+
+FROM scratch
+COPY --from=build-image /bin/hello /bin/hello
+
+ENTRYPOINT ["/bin/hello"]
